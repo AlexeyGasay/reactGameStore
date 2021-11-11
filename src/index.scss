@@ -1,0 +1,213 @@
+
+// img {
+//   width: auto;
+//   height: 100%;
+// }
+
+
+.sliderBox {
+  display: flex;
+  justify-content: center;
+  border: 2px solid green;
+  position: relative;
+}
+
+.slider {
+  position: relative;
+  width: 90%;
+  text-align: center;
+  height: 500px;
+  margin: auto;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid red;
+  
+  img {
+    width: auto;
+    height: 100%;
+  }
+}
+
+.slider-img {
+  position: absolute;
+  width: 100%;
+  height: 500px;
+  transition: all 0.2s;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 70% 30%;
+
+  .previewImgGame {
+    display: block;
+    max-width: 100%;
+    height: 500px;
+    position: relative;
+
+  }
+}
+
+
+.bgPls {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  filter: blur(20px);
+}
+
+.sliderBtn {
+  position: absolute;
+  top: 50%;
+}
+
+.sliderBtnPrev {
+  left: 0;
+  z-index: 99;
+}
+
+
+.sliderBtnNext {
+  right: 0;
+  z-index: 99;
+}
+
+
+
+
+
+.slider-img-prev {
+  transform: translateX(-100%);
+}
+
+.slider-img-next {
+  transform: translateX(100%);
+}
+
+.sliderImgActive {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+}
+
+
+
+
+* {
+  // color: rgb(75, 132, 165);
+  text-decoration: none;
+  list-style-type: none;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+   color: rgb(75, 132, 165);
+}
+
+.navHeader {
+  display: flex;
+  justify-content: center;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+
+    li {
+      margin: 0 30px;
+      font-size: 22px;
+    }
+  }
+}
+
+.banner {
+  height: 400px;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: rgb(105, 46, 46);
+}
+
+.searchBox {
+  display: flex;
+  justify-content: center;
+
+  input {
+    padding: 10px 10px 0 5px;
+    margin: 20px 0;
+    font-size: 20px;
+  }
+}
+
+.library {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  font-size: 20px;
+  color: #fff
+}
+
+.gameList {
+  background: rgb(71, 55, 126);
+  height: 100vh;
+}
+
+.aboutGame {
+  background-color: rgb(151, 113, 143);
+  height: 100vh;
+}
+
+
+
+
+
+.shopNav {
+  display: flex;
+  justify-content: center;
+
+  ul {
+    display: flex;
+
+    a {
+      margin: 0 20px;
+      font-size: 20px;
+    }
+  }
+}
+
+
+
+
+.gamesCategories {
+  display: flex;
+  img {
+    width: 250px;
+    max-height: 150px;
+    
+  }
+
+
+
+  .tags {
+    display: flex;
+  }
+}
+
+.listOfGames {
+  li {
+    display: flex;
+    align-items: center;
+  }  
+}
+
+
+.libraryBannerOfGame {
+  img {
+    max-width: 100%;
+    max-height: 500px;
+  }
+}
+
+
