@@ -1,6 +1,7 @@
 {
   "name": "gamesstore",
   "private": true,
+  "homepage": "https://alexeygasay.github.io/reactGameStore",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +10,9 @@
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "start": "webpack-dev-server --open",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist/"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +24,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.5.1",
     "file-loader": "^6.2.0",
+    "gh-pages": "^3.2.3",
     "html-webpack-plugin": "^5.5.0",
     "sass": "^1.43.4",
     "sass-loader": "^12.3.0",
