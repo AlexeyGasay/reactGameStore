@@ -97,12 +97,12 @@ body {
 
 .sliderBtnPrev {
   left: 1%;
-  z-index: 99;
+  z-index: 110;
 }
 
 .sliderBtnNext {
   right: 1%;
-  z-index: 99;
+  z-index: 110;
 }
 
 .slider-img-prev {
@@ -489,6 +489,143 @@ a {
 }
 
 
+@media (max-width: 768px) {
+ 
+  .navHeader {
+    flex-direction: column;
 
+    ul {
+      margin-bottom: 15px;
+    }
+
+  }
+
+  .shopNav ul {
+    align-items: center;
+  }
+  
+
+  .shopNav ul a {
+    display: flex;
+  }
+
+  .slider-img {
+    grid-template-columns: 100%;
+  }
+
+  .slider {
+
+    .previewImgGame img {
+      width: 95%;
+
+    }
+
+    .aboutGame {
+      display: none;
+    }
+  }
+
+  .listOfGames {
+    li {
+      padding: 0 !important;
+      justify-content: space-between;
+    }
+
+    .tags {
+      display: none;
+    }
+  }
+
+  .library {
+    grid-template-columns: 40% 60%;
+
+    .gameList ul {
+      margin: 5px 0 0 5px;
+      padding-right: 5px;
+    }
+  }
+
+  .gameBox img {
+    width: 100%;
+    height: auto;
+  }
+
+  
+}
+
+
+@media (max-width: 480px) { 
+
+  .App {
+    overflow-x: hidden;
+  }
+
+  .navHeader ul li {
+    margin: 0 10px;
+  }
+
+  .slider {
+    max-height: 300px;
+  }
+
+  .shopNav {
+    max-width: 100%;
+    padding: 0 5px;
+  }
+  .shopNav ul {
+    display: flex;
+    justify-content: center;
+  }
+  .shopNav ul a {
+    margin: 0;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    font-size: 16px;
+  }
+
+  li {
+    padding: 5px;
+  }
+
+  .listOfGames .shortInfo{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .listOfGames li{
+    flex-direction: column;
+    font-size: 16px;
+  }
+
+  .gameBox .about {
+    font-size: 16px;
+  }
+
+  .library {
+    font-size: 16px;
+    grid-template-columns: 30% 70%;
+  }
+
+  .aboutGame {
+    padding: 10px 0 0 10px !important;
+    font-size: 16px;
+  }
+
+  .searchBox input {
+    font-size: 16px;
+  }
+
+  .searchContainer .prompt ul li {
+    padding: 0;
+  }
+  
+  .searchContainer .prompt ul li {
+    font-size: 16px;
+    
+  }
+}
 
 

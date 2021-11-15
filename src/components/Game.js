@@ -42,7 +42,7 @@ const Game = props => {
 
                             <ul>
                                 {el.tags.map((tag) => {
-                                    return <NavLink to="/searchGames"
+                                    return <NavLink to="/searchGames" key={tag}
                                         onClick={() => dispatch(chooseTagAC(tag))}
                                     >
 

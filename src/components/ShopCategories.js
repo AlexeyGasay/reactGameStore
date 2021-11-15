@@ -12,8 +12,9 @@ const ShopCategories = props => {
 
     const dispatch = useDispatch();
 
-    const [category, setCategory] = useState('w');
+    const [category, setCategory] = useState('');
 
+    console.log(category.length)
 
     return (
         <div>
@@ -81,7 +82,7 @@ const ShopCategories = props => {
 
                                     </div>
 
-                                    <div>
+                                    <div className="shortInfo">
                                         {el.name}
                                         <ul className="tags">
 
