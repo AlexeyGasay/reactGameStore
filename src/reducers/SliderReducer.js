@@ -1,11 +1,4 @@
 import React from 'react';
-
-const UPDATE_SEARCH_TEXT = "UPDATE_SEARCH_TEXT";
-const CHANGE_SELECTED_GAME = "CHANGE_SELECTED_GAME";
-const CHANGE_SELECTED_TAG = "CHANGE_SELECTED_TAG";
-
-
-
 import img0 from "../img/img0.png"
 import img1 from "../img/img1.png"
 import img2 from "../img/img2.png"
@@ -17,12 +10,7 @@ import img7 from "../img/img7.jpg"
 
 
 let initialState = {
-    searchText: "test",
-    selectedGame: null,
-    selectedTag: null,
-
-    Games: [
-
+    sliderGames: [
         {
             id: 0,
             price: 200,
@@ -87,61 +75,18 @@ let initialState = {
             category: "new",
             liked: false,
             about: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere illum sequi accusamus distinctio numquam atquemagnam provident sapiente tempora! Explicabo omnis quidem ad exercitationem, sunt doloribus quisquam saepe molestiasrepellat!"
-        }
+        },
     
-    ]
-
+    
+    ],
 }
+export default function SliderReducer(state = initialState, action) {
+    switch(action.type) {
+    
 
-
-export default function CommonReducer(state = initialState, action) {
-    switch (action.type) {
-        case UPDATE_SEARCH_TEXT:
-            return {
-                ...state,
-                searchText: action.payload
-            }
-        case CHANGE_SELECTED_GAME:
-            return {
-                ...state,
-                searchText: "",
-                selectedGame: action.payload
-
-            }
-
-        case CHANGE_SELECTED_TAG:
-            return {
-                ...state,
-                selectedTag: action.payload
-            }
-
-
-        default:
+        default: 
             return state
     }
 }
 
 
-export const updateSearchTextAC = text => {
-    // debugger
-    return {
-        type: UPDATE_SEARCH_TEXT,
-        payload: text
-    }
-}
-
-
-export const chooseGameAC = game => {
-    return {
-        type: CHANGE_SELECTED_GAME,
-        payload: game
-    }
-}
-
-
-export const chooseTagAC = tag => {
-    return {
-        type: CHANGE_SELECTED_TAG,
-        payload: tag
-    }
-}

@@ -5,8 +5,8 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 import Header from './Header'
 import ShopContainer from './ShopContainer'
 import LibraryContainer from './LibraryContainer'
-
-
+import Game from './Game';
+import SearchGames from './SearchGames';
 
 const App = () => {
 
@@ -29,7 +29,10 @@ const App = () => {
                     <ShopContainer />
                 } />
 
-                <Route path='/*' render={() =>
+                <Route path="/game" component={Game} />
+                <Route path="/searchGames" component={SearchGames} />
+
+                <Route path='/library' render={() =>
                     <LibraryContainer />
                 } />
 

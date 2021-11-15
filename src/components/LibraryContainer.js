@@ -2,20 +2,22 @@ import React from 'react'
 import { connect } from "react-redux"
 import Library from './Library'
 
-import {updateSearchTextAC} from '../reducers/CommonReducer';
+import { likeGameAC } from '../reducers/ShopReducer';
 
 let mapStateToProps = (state) => {
     // debugger;
     return {
         // searchText: state.commonData.searchText
-        data: state.shopPage
+        data: state.shopPage.Games
 
     }
 }
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        
+        likeGame (game) {
+            dispatch(likeGameAC(game))
+        }
 
     }
 }

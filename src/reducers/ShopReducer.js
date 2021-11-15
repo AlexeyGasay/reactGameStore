@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UPDATE_SEARCH_TEXT = "UPDATE_SEARCH_TEXT";
+const LIKE_GAMES = "LIKE_GAMES";
 
 import img0 from "../img/img0.png"
 import img1 from "../img/img1.png"
@@ -11,7 +11,9 @@ import img5 from "../img/img5.jpg"
 import img6 from "../img/img6.jpg"
 import img7 from "../img/img7.jpg"
 
-let initialState = [
+let initialState = {
+    Games: [
+
     {
         id: 0,
         price: 200,
@@ -76,18 +78,34 @@ let initialState = [
         category: "new",
         liked: false,
         about: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere illum sequi accusamus distinctio numquam atquemagnam provident sapiente tempora! Explicabo omnis quidem ad exercitationem, sunt doloribus quisquam saepe molestiasrepellat!"
-    },
+    }
+
+]
 
 
-];
+};
 
 export default function shopReducer(state = initialState, action) {
+    // debugger
     switch(action.type) {
-        case UPDATE_SEARCH_TEXT:
+        case LIKE_GAMES: {
+            let changedState = [...state.Games].map((el) => {
+                if(el.name == action.payload) {
+                    return {
+                        ...el,
+                        liked: !el.liked
+                    }
+                }
+
+                return el
+            });;
+            
+
             return {
                 ...state,
-                searchText: action.payload
+                Games: [...changedState]
             }
+        }
 
 
         default: 
@@ -96,9 +114,11 @@ export default function shopReducer(state = initialState, action) {
 }
 
 
-export const qwe = text => {
+
+
+export const likeGameAC = game => {
     return {
-        type: UPDATE_SEARCH_TEXT,
-        payload: text
+        type: LIKE_GAMES,
+        payload: game
     }
 }

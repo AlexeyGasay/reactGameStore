@@ -2,13 +2,18 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { chooseGameAC } from '../reducers/CommonReducer';
+import { useDispatch } from 'react-redux';
+import { chooseTagAC } from '../reducers/CommonReducer';
 
 const ShopCategories = props => {
-    const state = useSelector(state => state.shopPage)
+    
+    const state = useSelector(state => state.shopPage.Games)
+
+    const dispatch = useDispatch();
 
     const [category, setCategory] = useState('w');
 
-    window.qwe = category;
 
     return (
         <div>
@@ -18,7 +23,9 @@ const ShopCategories = props => {
                 <ul>
 
                     <li>
-                        <a href="#" onClick={() => setCategory('new')}>
+                        <a href="#" onClick={() => setCategory('new')}
+                            className={category == "new" ? "activeShop": ''}
+                        >
 
                             Популярные новинки
 
@@ -26,7 +33,9 @@ const ShopCategories = props => {
                     </li>
 
                     <li>
-                        <a href="#" onClick={() => setCategory('topSell')}>
+                        <a href="#" onClick={() => setCategory('topSell')}
+                            className={category == "topSell" ? "activeShop": ''}
+                        >
 
                             Лидеры продаж
 
@@ -36,7 +45,9 @@ const ShopCategories = props => {
 
 
                     <li>
-                        <a href="#" onClick={() => setCategory('discounts')}>
+                        <a href="#" onClick={() => setCategory('discounts')}
+                             className={category == "discounts" ? "activeShop": ''}
+                        >
 
                             Скидки
 
@@ -59,29 +70,34 @@ const ShopCategories = props => {
                     {state.map((el) => {
                         if (el.category === category) {
 
-                            return <li key={el.id}>
+                            return <NavLink to="/game"
+                                onClick={()=> dispatch(chooseGameAC(el.name))} key={el.id}>
 
-                                <div>
-                                    <img src={el.img[0]} />
+                                <li key={el.id}>
 
-                                </div>
 
-                                <div>
-                                    {el.name}
-                                    <ul className="tags">
+                                    <div>
+                                        <img src={el.img[0]} />
 
-                                        {el.tags.map((tag) => <li key={tag}>{tag}</li>)}
+                                    </div>
 
-                                    </ul>
-                                </div>
+                                    <div>
+                                        {el.name}
+                                        <ul className="tags">
 
-                                <div>
+                                            {el.tags.map((tag) =>  <li key={tag}>{tag}</li>)}
 
-                                    {el.price <= 0 ? "Free": el.price}
+                                        </ul>
+                                    </div>
 
-                                </div>
+                                    <div>
 
-                            </li>
+                                        {el.price <= 0 ? "Free" : el.price}
+
+                                    </div>
+
+                                </li>
+                            </NavLink>
                         }
 
 

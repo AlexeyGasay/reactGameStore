@@ -1,15 +1,18 @@
+$bg-color: #141212;
+$bg-accent: rgb(32, 32, 32);
 
-// img {
-//   width: auto;
-//   height: 100%;
-// }
+.main {
+  padding-bottom: 100px;
+}
 
-
+body {
+  background-color: $bg-color;
+}
 .sliderBox {
   display: flex;
   justify-content: center;
-  border: 2px solid green;
   position: relative;
+  margin-top: 100px;
 }
 
 .slider {
@@ -22,11 +25,10 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  border: 1px solid red;
-  
+
   img {
-    width: auto;
-    height: 100%;
+    max-width: 100%;
+    max-height: 500px;
   }
 }
 
@@ -40,14 +42,30 @@
   grid-template-columns: 70% 30%;
 
   .previewImgGame {
-    display: block;
+    display: flex;
     max-width: 100%;
-    height: 500px;
+    max-height: 500px;
     position: relative;
+    justify-content: center;
+    align-items: center;
+    box-sizing: content-box;
 
+    .sliderLink {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-self: center;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+    }
+
+    img {
+      object-fit: contain;
+    }
   }
 }
-
 
 .bgPls {
   position: absolute;
@@ -58,24 +76,34 @@
 }
 
 .sliderBtn {
+  font-size: 50px;
   position: absolute;
   top: 50%;
+  background: none;
+  border: none;
+  color: #fff;
+  transition: 0.3s;
+
+  &:hover,
+  &:focus {
+    transform: scale(140%);
+    transition: 0.3s;
+  }
+
+  &:active {
+    transform: none;
+  }
 }
 
 .sliderBtnPrev {
-  left: 0;
+  left: 1%;
   z-index: 99;
 }
-
 
 .sliderBtnNext {
-  right: 0;
+  right: 1%;
   z-index: 99;
 }
-
-
-
-
 
 .slider-img-prev {
   transform: translateX(-100%);
@@ -89,14 +117,9 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-
 }
 
-
-
-
 * {
-  // color: rgb(75, 132, 165);
   text-decoration: none;
   list-style-type: none;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -105,19 +128,30 @@
 }
 
 a {
-   color: rgb(75, 132, 165);
+  color: #fff;
 }
 
 .navHeader {
   display: flex;
   justify-content: center;
+  align-self: center;
+  align-items: center;
+  padding: 30px 0 30px 0px;
+  background-color: $bg-color;
+  color: #fff;
+
+  a {
+    color: #fff;
+    transition: 0.3s;
+  }
 
   ul {
     display: flex;
     justify-content: space-between;
 
+
     li {
-      margin: 0 30px;
+      margin: 0 50px;
       font-size: 22px;
     }
   }
@@ -131,14 +165,67 @@ a {
   background-color: rgb(105, 46, 46);
 }
 
-.searchBox {
-  display: flex;
-  justify-content: center;
+.searchContainer {
+  position: relative;
 
+  .prompt {
+    position: absolute;
+    z-index: 105;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      // border: 1px solid $bg-accent;
+      width: 350px;
+      a {
+        padding: 5px 0;
+      }
+      a:hover {
+        background-color: #fff;
+        transition: 0.2s;
+        color: $bg-color;
+      }
+
+
+      li {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+
+.checkOutStyle {
+  ul {
+    display: flex;
+    flex-direction: column;
+    // border: 1px solid $bg-accent;
+    width: 350px;
+    a {
+      padding: 5px 0;
+    }
+    a:hover {
+      background-color: #fff;
+      transition: 0.2s;
+      color: $bg-color;
+    }
+
+
+    li {
+      margin-top: 10px;
+    }
+  }
+}
+
+.searchBox {
   input {
-    padding: 10px 10px 0 5px;
-    margin: 20px 0;
+    border: none;
+    border-radius: 2px;
+    padding: 13px;
+    color: #fff;
+    margin: 0 0 0 30px;
     font-size: 20px;
+    background: $bg-accent;
   }
 }
 
@@ -146,22 +233,57 @@ a {
   display: grid;
   grid-template-columns: 50% 50%;
   font-size: 20px;
-  color: #fff
+  color: #fff;
 }
 
 .gameList {
-  background: rgb(71, 55, 126);
+  border: 3px solid $bg-accent;
   height: 100vh;
+
+  ul {
+    padding: 20px;
+    margin: 80px 0 0 80px;
+
+    li {
+      padding: 5px;
+      margin: 5px 0;
+      transition: 0.2s;
+
+      &:hover {
+        transition: 0.2s;
+        transform: scale(102%);
+      }
+    }
+  }
 }
 
 .aboutGame {
-  background-color: rgb(151, 113, 143);
-  height: 100vh;
+  background-color: $bg-color;
+  color: #fff;
+  font-size: 20px;
+  line-height: 27px;
+  padding: 20px 0 0 20px;
+  border: 3px solid $bg-accent;
+  margin-left: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: first baseline;
+
+  .about {
+    text-align: left;
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+
+    li {
+      margin: 0 5px;
+    }
+  }
 }
-
-
-
-
 
 .shopNav {
   display: flex;
@@ -169,26 +291,31 @@ a {
 
   ul {
     display: flex;
+    margin-top: 50px;
 
     a {
+      color: #fff;
       margin: 0 20px;
-      font-size: 20px;
+      font-size: 22px;
     }
   }
 }
 
-
-
+.activeShop {
+  background-color: $bg-accent;
+  padding: 10px;
+}
 
 .gamesCategories {
   display: flex;
+  justify-content: center;
+  margin-top: 70px;
+
   img {
     width: 250px;
     max-height: 150px;
-    
+    margin-right: 20px;
   }
-
-
 
   .tags {
     display: flex;
@@ -196,18 +323,172 @@ a {
 }
 
 .listOfGames {
+  border: 2px solid $bg-accent;
+  padding: 25px;
   li {
     display: flex;
     align-items: center;
-  }  
+    align-self: center;
+    margin: 20px 5px;
+    transition: 0.3s;
+    color: #fff;
+    font-size: 18px;
+
+    &:hover,
+    &:focus {
+      background-color: $bg-accent;
+      transition: 0.3s;
+    }
+  }
 }
 
-
 .libraryBannerOfGame {
+  text-align: center;
+  margin-bottom: 20px;
   img {
     max-width: 100%;
     max-height: 500px;
   }
 }
+
+.like {
+  font-size: 30px;
+  width: 20px;
+  margin: 0 auto;
+  background: none;
+  border: none;
+  transition: 0.3s;
+
+  &:hover,
+  &:focus {
+    transition: 0.3s;
+    transform: scale(120%);
+  }
+}
+
+.gameBox {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-self: center;
+  text-align: center;
+
+  img {
+    object-fit: contain;
+    max-width: 700px;
+    max-height: 600px;
+    margin-bottom: 50px;
+  }
+
+  .about {
+    padding: 25px;
+    border: 2px solid $bg-accent;
+    margin: 0 auto;
+    color: #fff;
+    max-width: 400px;
+    line-height: 33px;
+    font-size: 20px;
+
+    ul {
+      li {
+        transition: 0.1s;
+
+        &:hover {
+          transition: 0.2s;
+          transform: scale(103%);
+        }
+      }
+      a {
+        font-style: italic;
+      }
+    }
+
+    p {
+      text-align: left;
+    }
+  }
+}
+
+.filteredGames {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+
+  img {
+    max-width: 300px;
+    max-height: 200px;
+  }
+  .listOfGames {
+    ul {
+      display: flex;
+    }
+  }
+}
+
+
+@media (max-width: 1440px) {
+
+
+  .slider-img {
+    grid-template-columns: 60% 40%;
+  }
+
+  .slider {
+    overflow-x: hidden;
+  }
+
+  .aboutGame ul {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .listOfGames {
+    li{
+      padding: 15px 10px !important;
+    }
+
+  }
+}
+
+
+@media (max-width: 1024px) {
+
+  .aboutGame {
+    h2 {
+      margin-bottom: 10px;
+    }
+  }
+  .sliderBox {
+    max-height: 350px;
+  }
+  
+  .slider {
+    max-height: 350px;
+
+    .aboutGame {
+      max-height: 350px;
+      font-size: 14px ;
+      line-height: 20px !important;
+      overflow: hidden;
+    }
+  }
+
+  .slider-img {
+    height: 100%;
+  }
+
+
+  .library .gameList {
+    ul {
+      margin: 50px 0 0 50px;
+    }
+  }
+
+
+
+}
+
+
+
 
 

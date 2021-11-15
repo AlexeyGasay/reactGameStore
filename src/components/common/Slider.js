@@ -3,16 +3,16 @@ import img0 from '../../img/img0.png'
 import img1 from '../../img/img1.png'
 import img2 from '../../img/img2.png'
 import { useState, useEffect, } from "react"
-import { useSelector } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { chooseGameAC } from '../../reducers/CommonReducer';
 
 
 const Slider = props => {
 
-    const state = useSelector(state => state.shopPage);
+    const dispatch = useDispatch();
 
-
-
+    const state = useSelector(state => state.sliderData.sliderGames);
 
     // debugger
 
@@ -62,29 +62,29 @@ const Slider = props => {
 
                 onClick={() => changeActiveImg("prev")}>
 
-                Prev
+                {"<"}
             </button>
 
 
             <div className="slider">
 
+                <span className="bgPls"
+                    style={
+                        {
+                            backgroundImage: `url(${state[activeIndex].img[0]})`,
+                            backgroundSize: 'cover',
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'center',
 
-
-            <span className="bgPls"
-                style={
-                    {
-                        backgroundImage: `url(${state[activeIndex].img[0]})`,
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center',
-    
+                        }
                     }
-                }
-            
-            >
-s
 
-            </span>
+                >
+                    s
+
+                </span>
+
+
 
                 <div className="slider-img slider-img-prev" key={prevImgIndex}>
 
@@ -101,29 +101,33 @@ s
                 </div>
 
 
-                <div className="slider-img sliderImgActive" key={activeIndex}
-
-                // style={
-                //     {backgroundImage: `url(${state[activeIndex].img[0]})`,}
-                // }
 
 
 
-                >
+                <div className="slider-img sliderImgActive" key={activeIndex}>
+
+
 
                     <div className="previewImgGame">
 
+                    <NavLink to="/game" className="sliderLink"
+                        onClick={() => dispatch(chooseGameAC(state[activeIndex].name))} key={state[activeIndex].name}>
+
+                            <span></span>
+
 
                         <img src={state[activeIndex].img[0]} />
+                    </NavLink>
 
 
                     </div>
 
                     <div className="aboutGame">
 
-                        <p>{state[activeIndex].name}</p>
-                        <p>Цена: {state[activeIndex].price <= 0 ? "Free": state[activeIndex].price  }</p>
-                        <p>{state[activeIndex].about}</p>
+                        <h2>{state[activeIndex].name}</h2>
+
+                        <p className="price">Цена: {state[activeIndex].price <= 0 ? "Free" : state[activeIndex].price}</p>
+                        <p className="about">{state[activeIndex].about}</p>
 
 
                         <ul>
@@ -136,7 +140,15 @@ s
 
                     </div>
 
+
                 </div>
+
+
+
+
+
+
+
 
                 <div className="slider-img slider-img-next" key={nextImgIndex}>
 
@@ -159,7 +171,7 @@ s
             <button className="sliderBtn sliderBtnNext"
 
                 onClick={() => changeActiveImg("next")}>
-                Next
+                  {">"}
 
             </button>
 

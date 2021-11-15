@@ -2,7 +2,7 @@ import React from 'react';
 import {
     NavLink
 } from "react-router-dom";
-
+import SearchInput from './common/SearchInput';
 
 
 const Header = props => {
@@ -13,7 +13,17 @@ const Header = props => {
 
                 <ul>
                     <li>
-                        <NavLink to="/shop">
+                        <NavLink to="/shop"
+                        
+                            activeStyle={
+                                {
+                                    textDecoration: "underline",
+                                    transition: "1s",
+                                    
+                                }
+                            }
+                        
+                        >
 
                             Магазин
 
@@ -22,7 +32,15 @@ const Header = props => {
                     </li>
 
                     <li>
-                        <NavLink to="/library">
+                        <NavLink to="/library"
+                        
+                        activeStyle={
+                            {
+                                textDecoration: "underline",
+                                transition: "1s",
+                                
+                            }
+                        }>
 
                             Библиотека
 
@@ -34,7 +52,10 @@ const Header = props => {
 
                 </ul>
 
+            <SearchInput />
             </nav>
+
+
         </>
     );
 };

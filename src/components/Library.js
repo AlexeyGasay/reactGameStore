@@ -1,10 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import SearchInput from './common/SearchInput';
 import { useState } from 'react'
 
+
+
 const Library = props => {
-    // debugger
 
     const [selectedGame, setSelectedGame] = useState(null)
 
@@ -13,15 +12,13 @@ const Library = props => {
     return (
         <div>
 
-            <SearchInput />
-
-
             <div className="library">
 
                 <div className="gameList">
                     <ul>
 
                         {props.data.map((el) => {
+                            // debugger
                             if (el.liked) {
                                 return <li key={el.id}>
 
@@ -62,6 +59,18 @@ const Library = props => {
                                                 {el.about}
 
                                             </p>
+
+                                            
+                        {
+                            el.liked == true ? <button onClick={() => props.likeGame(el.name)}
+                                className="like"
+                            >	&#128150;</button> :
+
+                                <button onClick={() => props.likeGame(el.name)}
+                                    className="like"
+                                >	&#128148;</button>
+
+                        }
 
 
                                         </div>

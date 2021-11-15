@@ -1,24 +1,54 @@
 import React from 'react';
 import { useSelector, useDispatch} from 'react-redux'
-const UPDATE_SEARCH_TEXT = "UPDATE_SEARCH_TEXT";
 import {updateSearchTextAC} from '../../reducers/CommonReducer'
+import { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
+import { chooseGameAC } from '../../reducers/CommonReducer';
 
 const searchInput = props => {
-
+    const [searchArr, setSearchArr] = useState([]);
     const searchText = useSelector(state => state.commonData.searchText)
-    // debugger
+    const state = useSelector(state => state.shopPage.Games);
+    let copyArr = [...state];
+
+    let width = document.body.clientWidth;
+
+    
+    console.log(width);
+
+
+    useEffect(() => {
+        setSearchArr([]);
+        let arr = [];
+        copyArr.map((game) => {
+            if(game.name.toLowerCase().includes(searchText.toLowerCase()) & searchText != '') {
+                if(width<= 1440 & arr.length < 3) {
+                    arr.push(game.name)
+                } else if (width>= 1440 & arr.length < 6) {
+                    arr.push(game.name)
+                }
+            }
+        })
+
+        setSearchArr(arr);
+
+
+        console.log(searchArr);
+        console.log(searchText.length);
+        
+    }, [searchText])
+
+
 
     const dispatch = useDispatch();
 
 
 
     const onSearchChange = e => {
-        // debugger
-        // dispatch({type: UPDATE_SEARCH_TEXT, payload: e.target.value})
         dispatch(updateSearchTextAC(e.target.value))
     }
     return (
-        <>
+        <div className="searchContainer">
             
             <div className="searchBox">
 
@@ -26,7 +56,31 @@ const searchInput = props => {
 
             </div>
 
-        </>
+            <div className="prompt">
+                <ul 
+                style={
+                    
+                    searchArr.length > 0 ? {border: "1px solid rgb(32, 32, 32)"}: {}
+                }
+
+                
+
+                >
+                    {searchArr.map((el) => {
+                        return <NavLink to="/game" key={el}
+                            onClick={()=> dispatch(chooseGameAC(el))}
+                        >
+
+                            <li>{el}</li>
+
+                        </NavLink>
+                        
+                    }
+                    )}
+                </ul>
+            </div>
+
+        </div>
     );
 };
 

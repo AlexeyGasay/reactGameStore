@@ -1,8 +1,7 @@
 import React from 'react'
-import { useState } from 'react';
-import SearchInput from './common/SearchInput';
 import Slider from './common/Slider';
 import ShopCategories from './ShopCategories';
+
 
 const Shop = (props) => {
     // debugger
@@ -12,7 +11,6 @@ const Shop = (props) => {
     return (
         <>
 
-            <SearchInput />
             <Slider />
 
             <ShopCategories />
