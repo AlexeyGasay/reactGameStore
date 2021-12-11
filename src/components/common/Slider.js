@@ -1,8 +1,5 @@
 import React from 'react';
-import img0 from '../../img/img0.png'
-import img1 from '../../img/img1.png'
-import img2 from '../../img/img2.png'
-import { useState, useEffect, } from "react"
+import { useState } from "react"
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { chooseGameAC } from '../../reducers/CommonReducer';
@@ -14,7 +11,6 @@ const Slider = props => {
 
     const state = useSelector(state => state.sliderData.sliderGames);
 
-    // debugger
 
     // Индекс текущего слайда
     const [activeIndex, setActiveIndex] = useState(0);
@@ -80,7 +76,7 @@ const Slider = props => {
                     }
 
                 >
-                    s
+                    
 
                 </span>
 
@@ -90,7 +86,7 @@ const Slider = props => {
 
                     <div className="previewImgGame">
 
-                        <img src={state[prevImgIndex].img[0]} />
+                        <img src={state[prevImgIndex].img[0]} alt=""/>
 
                     </div>
 
@@ -116,7 +112,7 @@ const Slider = props => {
                             <span></span>
 
 
-                        <img src={state[activeIndex].img[0]} />
+                        <img src={state[activeIndex].img[0]} alt=""/>
                     </NavLink>
 
 
@@ -132,7 +128,6 @@ const Slider = props => {
 
                         <ul>
                             {state[activeIndex].tags.map((el) => {
-                                // debugger
                                 return <li key={el}>{el}</li>
 
                             })}
@@ -154,7 +149,7 @@ const Slider = props => {
 
                     <div className="previewImgGame">
 
-                        <img src={state[nextImgIndex].img[0]} />
+                        <img src={state[nextImgIndex].img[0]} alt="" />
 
                     </div>
 

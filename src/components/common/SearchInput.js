@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { chooseGameAC } from '../../reducers/CommonReducer';
 
-const searchInput = props => {
+const searchInput = () => {
     const [searchArr, setSearchArr] = useState([]);
     const searchText = useSelector(state => state.commonData.searchText)
     const state = useSelector(state => state.shopPage.Games);
@@ -14,7 +14,6 @@ const searchInput = props => {
     let width = document.body.clientWidth;
 
     
-    console.log(width);
 
 
     useEffect(() => {
@@ -33,8 +32,6 @@ const searchInput = props => {
         setSearchArr(arr);
 
 
-        console.log(searchArr);
-        console.log(searchText.length);
         
     }, [searchText])
 

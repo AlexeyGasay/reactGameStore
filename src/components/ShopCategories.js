@@ -4,9 +4,8 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { chooseGameAC } from '../reducers/CommonReducer';
 import { useDispatch } from 'react-redux';
-import { chooseTagAC } from '../reducers/CommonReducer';
 
-const ShopCategories = props => {
+const ShopCategories = () => {
     
     const state = useSelector(state => state.shopPage.Games)
 
@@ -14,7 +13,6 @@ const ShopCategories = props => {
 
     const [category, setCategory] = useState('');
 
-    console.log(category.length)
 
     return (
         <div>
@@ -83,7 +81,7 @@ const ShopCategories = props => {
                                     </div>
 
                                     <div className="shortInfo">
-                                        {el.name}
+                                        {el.name}   
                                         <ul className="tags">
 
                                             {el.tags.map((tag) =>  <li key={tag}>{tag}</li>)}
@@ -92,8 +90,8 @@ const ShopCategories = props => {
                                     </div>
 
                                     <div>
-
-                                        {el.price <= 0 ? "Free" : el.price}
+                                        
+                                        {el.price <= 0 ? "Free" : `  ${el.price}`}
 
                                     </div>
 

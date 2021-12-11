@@ -1,6 +1,5 @@
 import React from 'react'
-import '../index.css'
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import {Route } from "react-router-dom";
 
 import Header from './Header'
 import ShopContainer from './ShopContainer'

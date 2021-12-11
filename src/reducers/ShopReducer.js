@@ -1,4 +1,3 @@
-import React from 'react';
 
 const LIKE_GAMES = "LIKE_GAMES";
 
@@ -86,7 +85,6 @@ let initialState = {
 };
 
 export default function shopReducer(state = initialState, action) {
-    // debugger
     switch(action.type) {
         case LIKE_GAMES: {
             let changedState = [...state.Games].map((el) => {

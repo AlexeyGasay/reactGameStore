@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import { chooseTagAC } from '../reducers/CommonReducer';
 
 
-const Game = props => {
+const Game = () => {
 
     const dispatch = useDispatch();
     const selGame = useSelector(state => state.commonData.selectedGame);
@@ -16,15 +16,12 @@ const Game = props => {
 
 
 
-    // debugger
     return (
         <div>
 
 
             {games.map((el) => {
-                // debugger
                 if (selGame == el.name) {
-                    // debugger
                     return <div key={el.id} className="gameBox">
 
                         <div className="imgBox">

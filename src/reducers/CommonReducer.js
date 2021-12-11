@@ -1,5 +1,3 @@
-import React from 'react';
-
 const UPDATE_SEARCH_TEXT = "UPDATE_SEARCH_TEXT";
 const CHANGE_SELECTED_GAME = "CHANGE_SELECTED_GAME";
 const CHANGE_SELECTED_TAG = "CHANGE_SELECTED_TAG";
@@ -123,7 +121,6 @@ export default function CommonReducer(state = initialState, action) {
 
 
 export const updateSearchTextAC = text => {
-    // debugger
     return {
         type: UPDATE_SEARCH_TEXT,
         payload: text

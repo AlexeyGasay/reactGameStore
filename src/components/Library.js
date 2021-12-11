@@ -18,7 +18,6 @@ const Library = props => {
                     <ul>
 
                         {props.data.map((el) => {
-                            // debugger
                             if (el.liked) {
                                 return <li key={el.id}>
 

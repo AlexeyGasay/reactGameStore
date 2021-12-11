@@ -1,12 +1,9 @@
 import React from 'react';
-import {
-    NavLink
-} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import SearchInput from './common/SearchInput';
 
 
-const Header = props => {
-    // debugger
+const Header = () => {
     return (
         <>
             <nav className="navHeader">
